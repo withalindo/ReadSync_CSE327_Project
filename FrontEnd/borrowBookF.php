@@ -1,5 +1,17 @@
 <?php
- include "../BackEnd/connectDB.php"; 
+/**
+ * @file borrowBookF.php
+ * @brief Frontend page for selecting books to borrow.
+ *
+ * This page provides a form for users to select books for borrowing. It fetches
+ * the list of available books from the database and displays them in a table with
+ * checkboxes for selection. The form submits the selected books and the user's
+ * username to the backend script `borrowBook.php`.
+ *
+ * @date 2025-04-04
+ * @author Karma
+ */
+include "../BackEnd/connectDB.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,6 +24,12 @@
     <h2>Select Books For Borrowing</h2>
     <form action="../BackEnd/borrowBook.php" method="POST">
         <?php
+        /**
+         * @brief Fetches and displays the list of available books.
+         *
+         * Queries the `books` table to retrieve book details such as ID, name, and price.
+         * Displays the books in a table with checkboxes for selection.
+         */
         $result = $conn->query("SELECT book_id, book_name, book_price FROM books");
         if ($result->num_rows > 0) {
             echo "<table><tr><th>Select</th><th>Book Name</th><th>Price</th></tr>";
@@ -24,6 +42,11 @@
             }
             echo "</table>";
         } else {
+            /**
+             * @brief Handles the case where no books are available.
+             *
+             * Displays a message indicating that no books are currently available for borrowing.
+             */
             echo "<p style='text-align:center;'>No books available.</p>";
         }
         ?>
