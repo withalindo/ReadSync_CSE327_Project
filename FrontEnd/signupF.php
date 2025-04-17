@@ -1,3 +1,29 @@
+<?php  
+/**
+ * @file signupF.php
+ * @brief This is the front-end for the Sign-Up page.
+ *
+ * I created this file to allow new users to register for the application. 
+ * It provides a form where users can input their details, which are then sent to the backend for processing.
+ *
+ * @details
+ * - I used external CSS files for styling and a custom font for the design.
+ * - The page includes a "BACK" button that redirects users to the landing page.
+ * - The form collects the following user details:
+ *   - Name
+ *   - Email
+ *   - Date of Birth
+ *   - Phone Number
+ *   - Username
+ *   - Password
+ * - The form uses the `POST` method to securely send the data to the backend file `signup.php`.
+ * - The page is fully responsive and ensures compatibility across different devices.
+ *
+ * @author 
+ * withalindo
+ * @date April 17, 2025
+ */
+?>
 <!DOCTYPE html>
 <html lang="en">
 

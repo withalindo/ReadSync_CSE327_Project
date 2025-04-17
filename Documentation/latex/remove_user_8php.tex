@@ -1,0 +1,68 @@
+\doxysection{Back\+End/remove\+User.php File Reference}
+\hypertarget{remove_user_8php}{}\label{remove_user_8php}\index{BackEnd/removeUser.php@{BackEnd/removeUser.php}}
+
+
+This file is used for testing purposes to remove all entries from the {\ttfamily users} table.  
+
+
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{remove_user_8php_a047170d6020a882807665812a27e2525}{\$sql}} = "{}DELETE FROM users"{}
+\begin{DoxyCompactList}\small\item\em I execute a query to delete all entries from the {\ttfamily users} table. \end{DoxyCompactList}\item 
+if(\$conn-\/$>$query(\$sql)===TRUE) \mbox{\hyperlink{remove_user_8php_a5894a8dcaeff5a403c5ad8a6d070be41}{else}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file is used for testing purposes to remove all entries from the {\ttfamily users} table. 
+
+I created this file to test the functionality of deleting all records from the {\ttfamily users} table in the database. It connects to the database, executes a {\ttfamily DELETE} query, and displays the result.
+
+
+\begin{DoxyItemize}
+\item I included the {\ttfamily \doxylink{connect_d_b_8php}{connect\+DB.\+php}} file to establish a connection to the database.
+\item The script executes a {\ttfamily DELETE} query to remove all entries from the {\ttfamily users} table.
+\item If the query is successful, I display a success message.
+\item If the query fails, I display an error message with the details of the failure.
+\item Finally, I close the database connection to free up resources.
+\end{DoxyItemize}
+
+\begin{DoxyNote}{Note}
+
+\begin{DoxyItemize}
+\item This file is intended for testing purposes only and should not be used in production.
+\item Use this script with caution as it will delete all user data from the {\ttfamily users} table.
+\end{DoxyItemize}
+\end{DoxyNote}
+\begin{DoxyAuthor}{Author}
+withalindo 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+April 17, 2025 
+\end{DoxyDate}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{remove_user_8php_a047170d6020a882807665812a27e2525}\index{removeUser.php@{removeUser.php}!\$sql@{\$sql}}
+\index{\$sql@{\$sql}!removeUser.php@{removeUser.php}}
+\doxysubsubsection{\texorpdfstring{\$sql}{\$sql}}
+{\footnotesize\ttfamily \label{remove_user_8php_a047170d6020a882807665812a27e2525} 
+\$sql = "{}DELETE FROM users"{}}
+
+
+
+I execute a query to delete all entries from the {\ttfamily users} table. 
+
+I use the {\ttfamily DELETE} SQL command to remove all records from the {\ttfamily users} table. If the query is successful, I display a success message. Otherwise, I display an error message. \Hypertarget{remove_user_8php_a5894a8dcaeff5a403c5ad8a6d070be41}\index{removeUser.php@{removeUser.php}!else@{else}}
+\index{else@{else}!removeUser.php@{removeUser.php}}
+\doxysubsubsection{\texorpdfstring{else}{else}}
+{\footnotesize\ttfamily \label{remove_user_8php_a5894a8dcaeff5a403c5ad8a6d070be41} 
+if ( \$conn-\/$>$query( \$sql)===TRUE) else}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ echo\ \textcolor{stringliteral}{"{}Error:\ "{}}\ .\ \$conn-\/>error}
+
+\end{DoxyCode}

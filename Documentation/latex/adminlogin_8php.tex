@@ -1,0 +1,30 @@
+\doxysection{Back\+End/adminlogin.php File Reference}
+\hypertarget{adminlogin_8php}{}\label{adminlogin_8php}\index{BackEnd/adminlogin.php@{BackEnd/adminlogin.php}}
+
+
+This is the backend file for handling admin login functionality.  
+
+
+
+
+\doxysubsection{Detailed Description}
+This is the backend file for handling admin login functionality. 
+
+I created this file to process the login requests from the admin login page. It validates the admin\textquotesingle{}s credentials, checks them against the database, and starts a session if the login is successful.
+
+
+\begin{DoxyItemize}
+\item I included the {\ttfamily \doxylink{connect_d_b_8php}{connect\+DB.\+php}} file to establish a connection to the database.
+\item The script checks if the login form was submitted and retrieves the admin\textquotesingle{}s credentials.
+\item I implemented input validation to ensure that the fields are not empty.
+\item The script uses a prepared statement to securely query the database for the admin\textquotesingle{}s information.
+\item If the credentials are valid, I start a session and redirect the admin to the dashboard.
+\item If the credentials are invalid, I display appropriate error messages using Java\+Script alerts.
+\end{DoxyItemize}
+
+\begin{DoxyAuthor}{Author}
+withalindo 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+April 17, 2025 
+\end{DoxyDate}

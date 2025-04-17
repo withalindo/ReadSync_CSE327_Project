@@ -1,0 +1,95 @@
+\doxysection{Back\+End/update\+Book\+Name.php File Reference}
+\hypertarget{update_book_name_8php}{}\label{update_book_name_8php}\index{BackEnd/updateBookName.php@{BackEnd/updateBookName.php}}
+
+
+This file handles updating the name of a specific book in the database.  
+
+
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{update_book_name_8php_ae9c3a04a0fe4c817244b1db0eef3c140}{\$book\+ISBN}} = mysqli\+\_\+real\+\_\+escape\+\_\+string(\$conn, \$\+\_\+\+POST\mbox{[}\textquotesingle{}book\+\_\+isbn\textquotesingle{}\mbox{]})
+\begin{DoxyCompactList}\small\item\em I retrieve and sanitize the book details from the form submission. \end{DoxyCompactList}\item 
+\Hypertarget{update_book_name_8php_aaf57adbd323e83c761490670389d0257}\label{update_book_name_8php_aaf57adbd323e83c761490670389d0257} 
+{\bfseries \$new\+Book\+Name} = mysqli\+\_\+real\+\_\+escape\+\_\+string(\$conn, \$\+\_\+\+POST\mbox{[}\textquotesingle{}new\+\_\+book\+\_\+name\textquotesingle{}\mbox{]})
+\item 
+\mbox{\hyperlink{update_book_name_8php_aec5d0c9b0bc65902d56f4aa2ff93efa3}{\$check\+Book\+Query}} = "{}SELECT \texorpdfstring{$\ast$}{*} FROM books WHERE book\+\_\+isbn = \textquotesingle{}\$book\+ISBN\textquotesingle{}"{}
+\begin{DoxyCompactList}\small\item\em I check if the book exists in the database using its ISBN. \end{DoxyCompactList}\item 
+\Hypertarget{update_book_name_8php_afdfa1312df4b0407ea56ea3f15c57f4b}\label{update_book_name_8php_afdfa1312df4b0407ea56ea3f15c57f4b} 
+{\bfseries \$check\+Book\+Result} = mysqli\+\_\+query(\$conn, \$check\+Book\+Query)
+\item 
+if(mysqli\+\_\+num\+\_\+rows(\$check\+Book\+Result) $>$ 0) \mbox{\hyperlink{update_book_name_8php_a956bf71ee7c052cb26bc7c13b8293085}{else}}
+\item 
+\Hypertarget{update_book_name_8php_a6733eb5f605d09eaede9845835d71c4e}\label{update_book_name_8php_a6733eb5f605d09eaede9845835d71c4e} 
+{\bfseries exit}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file handles updating the name of a specific book in the database. 
+
+I created this file to process requests for updating the name of a book in the library system. It retrieves the book\textquotesingle{}s ISBN and the new name from the form submission, validates the input, and updates the database accordingly.
+
+
+\begin{DoxyItemize}
+\item I included the {\ttfamily \doxylink{connect_d_b_8php}{connect\+DB.\+php}} file to establish a connection to the database.
+\item The script retrieves the book\textquotesingle{}s ISBN and the new name from the form submission.
+\item I use {\ttfamily mysqli\+\_\+real\+\_\+escape\+\_\+string} to sanitize the input and prevent SQL injection.
+\item The script checks if the book exists in the database using a {\ttfamily SELECT} query.
+\item If the book exists, I execute an {\ttfamily UPDATE} query to modify the book\textquotesingle{}s name.
+\item If the book does not exist, I display an error message.
+\item After processing, I redirect the user back to the update form page.
+\item Finally, I close the database connection to free up resources.
+\end{DoxyItemize}
+
+\begin{DoxyNote}{Note}
+
+\begin{DoxyItemize}
+\item Ensure that the database contains the {\ttfamily books} table with the appropriate schema.
+\item This script assumes that the form submission includes valid and sanitized data.
+\item This file is intended for use by administrators only.
+\end{DoxyItemize}
+\end{DoxyNote}
+\begin{DoxyAuthor}{Author}
+withalindo 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+April 17, 2025 
+\end{DoxyDate}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{update_book_name_8php_ae9c3a04a0fe4c817244b1db0eef3c140}\index{updateBookName.php@{updateBookName.php}!\$bookISBN@{\$bookISBN}}
+\index{\$bookISBN@{\$bookISBN}!updateBookName.php@{updateBookName.php}}
+\doxysubsubsection{\texorpdfstring{\$bookISBN}{\$bookISBN}}
+{\footnotesize\ttfamily \label{update_book_name_8php_ae9c3a04a0fe4c817244b1db0eef3c140} 
+\$book\+ISBN = mysqli\+\_\+real\+\_\+escape\+\_\+string(\$conn, \$\+\_\+\+POST\mbox{[}\textquotesingle{}book\+\_\+isbn\textquotesingle{}\mbox{]})}
+
+
+
+I retrieve and sanitize the book details from the form submission. 
+
+I use {\ttfamily mysqli\+\_\+real\+\_\+escape\+\_\+string} to sanitize the book\textquotesingle{}s ISBN and the new name to prevent SQL injection. \Hypertarget{update_book_name_8php_aec5d0c9b0bc65902d56f4aa2ff93efa3}\index{updateBookName.php@{updateBookName.php}!\$checkBookQuery@{\$checkBookQuery}}
+\index{\$checkBookQuery@{\$checkBookQuery}!updateBookName.php@{updateBookName.php}}
+\doxysubsubsection{\texorpdfstring{\$checkBookQuery}{\$checkBookQuery}}
+{\footnotesize\ttfamily \label{update_book_name_8php_aec5d0c9b0bc65902d56f4aa2ff93efa3} 
+\$check\+Book\+Query = "{}SELECT \texorpdfstring{$\ast$}{*} FROM books WHERE book\+\_\+isbn = \textquotesingle{}\$book\+ISBN\textquotesingle{}"{}}
+
+
+
+I check if the book exists in the database using its ISBN. 
+
+I execute a {\ttfamily SELECT} query to verify if the book is present in the {\ttfamily books} table. \Hypertarget{update_book_name_8php_a956bf71ee7c052cb26bc7c13b8293085}\index{updateBookName.php@{updateBookName.php}!else@{else}}
+\index{else@{else}!updateBookName.php@{updateBookName.php}}
+\doxysubsubsection{\texorpdfstring{else}{else}}
+{\footnotesize\ttfamily \label{update_book_name_8php_a956bf71ee7c052cb26bc7c13b8293085} 
+if (mysqli\+\_\+num\+\_\+rows( \$check\+Book\+Result) $>$ 0) else}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ }
+\DoxyCodeLine{\ \ \ \ }
+\DoxyCodeLine{\ \ \ \ echo\ \textcolor{stringliteral}{"{}<script>alert('Error:\ Book\ not\ found.');</script>"{}}}
+
+\end{DoxyCode}

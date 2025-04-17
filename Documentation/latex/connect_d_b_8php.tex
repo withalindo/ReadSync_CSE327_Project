@@ -1,0 +1,88 @@
+\doxysection{Back\+End/connect\+DB.php File Reference}
+\hypertarget{connect_d_b_8php}{}\label{connect_d_b_8php}\index{BackEnd/connectDB.php@{BackEnd/connectDB.php}}
+
+
+This file establishes a connection to the database.  
+
+
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{connect_d_b_8php_aa26867126e25e19a72436bf08d8af582}{\$db\+Server}} = "{}localhost"{}
+\item 
+\mbox{\hyperlink{connect_d_b_8php_a4a92606de85aafdc0dcae4976b7ca669}{\$db\+User}} = "{}root"{}
+\item 
+\mbox{\hyperlink{connect_d_b_8php_a30d808caf55f524798c6a5aaafd633ad}{\$db\+Pass}} = "{}Password"{}
+\item 
+\mbox{\hyperlink{connect_d_b_8php_a68f39949e76b64662a06cb56579d91c3}{\$db\+Name}} = "{}library\+Management\+System\+DB"{}
+\item 
+\mbox{\hyperlink{connect_d_b_8php_abe4cc9788f52e49485473dc699537388}{try}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file establishes a connection to the database. 
+
+I created this file to handle the database connection for the application. It connects to the {\ttfamily library\+Management\+System\+DB} database using the provided credentials.
+
+
+\begin{DoxyItemize}
+\item I defined the database server, username, password, and database name as variables.
+\item I used the {\ttfamily mysqli\+\_\+connect} function to establish the connection.
+\item If the connection fails, I catch the exception and display an error message.
+\item If the connection is successful, I display a success message (for debugging purposes).
+\end{DoxyItemize}
+
+\begin{DoxyNote}{Note}
+
+\begin{DoxyItemize}
+\item This file is included in other backend scripts to provide a shared database connection.
+\item Make sure to replace the placeholder password ({\ttfamily Password}) with the actual database password.
+\end{DoxyItemize}
+\end{DoxyNote}
+\begin{DoxyAuthor}{Author}
+withalindo 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+April 17, 2025 
+\end{DoxyDate}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{connect_d_b_8php_a68f39949e76b64662a06cb56579d91c3}\index{connectDB.php@{connectDB.php}!\$dbName@{\$dbName}}
+\index{\$dbName@{\$dbName}!connectDB.php@{connectDB.php}}
+\doxysubsubsection{\texorpdfstring{\$dbName}{\$dbName}}
+{\footnotesize\ttfamily \label{connect_d_b_8php_a68f39949e76b64662a06cb56579d91c3} 
+\$db\+Name = "{}library\+Management\+System\+DB"{}}
+
+The name of the database. \Hypertarget{connect_d_b_8php_a30d808caf55f524798c6a5aaafd633ad}\index{connectDB.php@{connectDB.php}!\$dbPass@{\$dbPass}}
+\index{\$dbPass@{\$dbPass}!connectDB.php@{connectDB.php}}
+\doxysubsubsection{\texorpdfstring{\$dbPass}{\$dbPass}}
+{\footnotesize\ttfamily \label{connect_d_b_8php_a30d808caf55f524798c6a5aaafd633ad} 
+\$db\+Pass = "{}Password"{}}
+
+The password for the database. \Hypertarget{connect_d_b_8php_aa26867126e25e19a72436bf08d8af582}\index{connectDB.php@{connectDB.php}!\$dbServer@{\$dbServer}}
+\index{\$dbServer@{\$dbServer}!connectDB.php@{connectDB.php}}
+\doxysubsubsection{\texorpdfstring{\$dbServer}{\$dbServer}}
+{\footnotesize\ttfamily \label{connect_d_b_8php_aa26867126e25e19a72436bf08d8af582} 
+\$db\+Server = "{}localhost"{}}
+
+The database server address. \Hypertarget{connect_d_b_8php_a4a92606de85aafdc0dcae4976b7ca669}\index{connectDB.php@{connectDB.php}!\$dbUser@{\$dbUser}}
+\index{\$dbUser@{\$dbUser}!connectDB.php@{connectDB.php}}
+\doxysubsubsection{\texorpdfstring{\$dbUser}{\$dbUser}}
+{\footnotesize\ttfamily \label{connect_d_b_8php_a4a92606de85aafdc0dcae4976b7ca669} 
+\$db\+User = "{}root"{}}
+
+The username for the database. \Hypertarget{connect_d_b_8php_abe4cc9788f52e49485473dc699537388}\index{connectDB.php@{connectDB.php}!try@{try}}
+\index{try@{try}!connectDB.php@{connectDB.php}}
+\doxysubsubsection{\texorpdfstring{try}{try}}
+{\footnotesize\ttfamily \label{connect_d_b_8php_abe4cc9788f52e49485473dc699537388} 
+try}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \$conn\ =\ mysqli\_connect(\mbox{\hyperlink{connect_d_b_8php_aa26867126e25e19a72436bf08d8af582}{\$dbServer}},\ \mbox{\hyperlink{connect_d_b_8php_a4a92606de85aafdc0dcae4976b7ca669}{\$dbUser}},\ \mbox{\hyperlink{connect_d_b_8php_a30d808caf55f524798c6a5aaafd633ad}{\$dbPass}},\ \mbox{\hyperlink{connect_d_b_8php_a68f39949e76b64662a06cb56579d91c3}{\$dbName}})}
+
+\end{DoxyCode}
