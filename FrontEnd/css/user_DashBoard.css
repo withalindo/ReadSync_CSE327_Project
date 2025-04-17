@@ -1,0 +1,109 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roseritta', sans-serif;
+    overflow-x: hidden; 
+}
+
+.background {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: url("../Background_Images/userDashboard.jpg") no-repeat center center;
+    background-size: cover;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+}
+
+.menuBar {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    cursor: pointer;
+}
+
+.menuImage {
+    width: 30px;
+    height: 30px;
+    background: url("../Background_Images/menu\ white.png") no-repeat center center;
+    background-size: cover;
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.sidenav .active {
+    color: #555;
+    background-color: #575757;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+.sideMenu {
+    width: 100%;
+    height: 200px;
+    background: url("../Background_Images/menubar.png") no-repeat center center;
+    background-size: cover;
+}
+
+.main-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.profileButton, .libraryButton, .logoutButton, .borrow, .view, .request {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 18px;
+    color: #fff;
+    background-color: #333;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    width: 80%; 
+    max-width: 300px; 
+}
+
+.profileButton:hover, .libraryButton:hover, .logoutButton:hover, .borrow:hover, .view:hover, .request:hover {
+    background-color: #555;
+}
