@@ -1,0 +1,73 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Body Styles */
+  body {
+    font-family: "Roseritta", sans-serif;
+    background-color: #121212;
+    color: white;
+    position: relative;
+    overflow-x: hidden;
+    background-image: url("../Background_Images/request.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  
+  /* Back Button */
+  #backButton {
+    position: absolute;
+    font-size: 1.2rem;
+    color: white;
+    text-decoration: underline;
+    top: 20px;
+    left: 20px;
+    cursor: pointer;
+  }
+  
+  /* Form Styles */
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  /* Input Fields */
+  input[type="text"] {
+    background-color: black;
+    border: 1px solid white;
+    color: white;
+    width: 80%;
+    max-width: 600px;
+    height: 40px;
+    border-radius: 20px;
+    margin: 10px 0;
+    text-align: center;
+    font-size: 1rem;
+  }
+    input[type="text"]::placeholder {
+        color: white;
+        opacity: 0.7; 
+    }
+  
+  /* Submit Button */
+  #submitRequestButton {
+    font-size: 1.2rem;
+    color: white;
+    background-color: black;
+    border: 1px solid white;
+    border-radius: 25px;
+    padding: 10px 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  #submitRequestButton:hover {
+    background-color: #333;
+  }
