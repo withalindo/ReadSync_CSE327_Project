@@ -1,0 +1,147 @@
+\doxysection{Back\+End/addbooks.php File Reference}
+\hypertarget{addbooks_8php}{}\label{addbooks_8php}\index{BackEnd/addbooks.php@{BackEnd/addbooks.php}}
+
+
+This file handles the backend logic for adding new books to the library system.  
+
+
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{addbooks_8php_ad3b126154bca8dcc714c726ab2780b06}{\$book\+\_\+name}} = mysqli\+\_\+real\+\_\+escape\+\_\+string(\$conn, \$\+\_\+\+POST\mbox{[}\textquotesingle{}book\+\_\+name\textquotesingle{}\mbox{]})
+\begin{DoxyCompactList}\small\item\em I retrieve and sanitize the book, author, and category details from the form submission. \end{DoxyCompactList}\item 
+\Hypertarget{addbooks_8php_ab7769480c9210fb8a58e3692ecdad792}\label{addbooks_8php_ab7769480c9210fb8a58e3692ecdad792} 
+{\bfseries \$book\+\_\+isbn} = mysqli\+\_\+real\+\_\+escape\+\_\+string(\$conn, \$\+\_\+\+POST\mbox{[}\textquotesingle{}book\+\_\+isbn\textquotesingle{}\mbox{]})
+\item 
+\Hypertarget{addbooks_8php_ac2c618c43ebce7a2a8736661bf14d4af}\label{addbooks_8php_ac2c618c43ebce7a2a8736661bf14d4af} 
+{\bfseries \$author\+\_\+id} = intval(\$\+\_\+\+POST\mbox{[}\textquotesingle{}author\+\_\+id\textquotesingle{}\mbox{]})
+\item 
+\Hypertarget{addbooks_8php_adc1c7aac29d7cc0cc437f39727f29423}\label{addbooks_8php_adc1c7aac29d7cc0cc437f39727f29423} 
+{\bfseries \$author\+\_\+name} = mysqli\+\_\+real\+\_\+escape\+\_\+string(\$conn, \$\+\_\+\+POST\mbox{[}\textquotesingle{}author\+\_\+name\textquotesingle{}\mbox{]})
+\item 
+\Hypertarget{addbooks_8php_a42710967ceed1111a3043f0aafceaaa9}\label{addbooks_8php_a42710967ceed1111a3043f0aafceaaa9} 
+{\bfseries \$category\+\_\+name} = mysqli\+\_\+real\+\_\+escape\+\_\+string(\$conn, \$\+\_\+\+POST\mbox{[}\textquotesingle{}cat\+\_\+name\textquotesingle{}\mbox{]})
+\item 
+\Hypertarget{addbooks_8php_ae04842fdf110b23f4e74bbccf8870427}\label{addbooks_8php_ae04842fdf110b23f4e74bbccf8870427} 
+{\bfseries \$cat\+\_\+id} = intval(\$\+\_\+\+POST\mbox{[}\textquotesingle{}cat\+\_\+id\textquotesingle{}\mbox{]})
+\item 
+\Hypertarget{addbooks_8php_a26ae05c033cdaa9e1b7f798bbe9859d1}\label{addbooks_8php_a26ae05c033cdaa9e1b7f798bbe9859d1} 
+{\bfseries \$no\+\_\+of\+\_\+copies} = intval(\$\+\_\+\+POST\mbox{[}\textquotesingle{}no\+\_\+of\+\_\+copies\textquotesingle{}\mbox{]})
+\item 
+\Hypertarget{addbooks_8php_ae2caa3b2be3eb23a31a745f8321b50d2}\label{addbooks_8php_ae2caa3b2be3eb23a31a745f8321b50d2} 
+{\bfseries \$book\+\_\+price} = floatval(\$\+\_\+\+POST\mbox{[}\textquotesingle{}book\+\_\+price\textquotesingle{}\mbox{]})
+\item 
+if(\$no\+\_\+of\+\_\+copies$<$ 0\texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|} \$book\+\_\+price$<$ 0) \mbox{\hyperlink{addbooks_8php_a2b970eb0ea99d5a65a085e96ee542ad8}{\$check\+\_\+author\+\_\+query}} = "{}SELECT \texorpdfstring{$\ast$}{*} FROM authors WHERE author\+\_\+id = \$author\+\_\+id"{}
+\begin{DoxyCompactList}\small\item\em I validate the number of copies and book price to ensure they are non-\/negative. \end{DoxyCompactList}\item 
+\Hypertarget{addbooks_8php_aa81d565440dbe76acc8795b3863c8ce0}\label{addbooks_8php_aa81d565440dbe76acc8795b3863c8ce0} 
+{\bfseries \$check\+\_\+author\+\_\+result} = mysqli\+\_\+query(\$conn, \$check\+\_\+author\+\_\+query)
+\item 
+if(mysqli\+\_\+num\+\_\+rows(\$check\+\_\+author\+\_\+result)==0) \mbox{\hyperlink{addbooks_8php_a41fadd88e9dd0816e1d7d020c4a6830f}{\$check\+\_\+category\+\_\+query}} = "{}SELECT \texorpdfstring{$\ast$}{*} FROM categories WHERE category\+\_\+id = \$cat\+\_\+id AND category\+\_\+name = \textquotesingle{}\$category\+\_\+name\textquotesingle{}"{}
+\begin{DoxyCompactList}\small\item\em I check if the category exists in the {\ttfamily categories} table. \end{DoxyCompactList}\item 
+\Hypertarget{addbooks_8php_a5e3c68db882c745566f02df4450ee531}\label{addbooks_8php_a5e3c68db882c745566f02df4450ee531} 
+{\bfseries \$check\+\_\+category\+\_\+result} = mysqli\+\_\+query(\$conn, \$check\+\_\+category\+\_\+query)
+\item 
+if(mysqli\+\_\+num\+\_\+rows(\$check\+\_\+category\+\_\+result)==0) \mbox{\hyperlink{addbooks_8php_a947cf6e606a70b8ea2eae3feb07d221e}{\$book\+\_\+query}}
+\begin{DoxyCompactList}\small\item\em I insert the book details into the {\ttfamily books} table. \end{DoxyCompactList}\item 
+if(mysqli\+\_\+query(\$conn, \$book\+\_\+query)) \mbox{\hyperlink{addbooks_8php_ada8af174388e4a5bd9304c9628e48d9f}{else}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file handles the backend logic for adding new books to the library system. 
+
+I created this file to process form submissions for adding new books. It validates the input, checks for the existence of authors and categories, and inserts the book details into the database.
+
+
+\begin{DoxyItemize}
+\item I included the {\ttfamily \doxylink{connect_d_b_8php}{connect\+DB.\+php}} file to establish a connection to the database.
+\item The script retrieves the book details, author details, and category details from the form submission.
+\item I use {\ttfamily mysqli\+\_\+real\+\_\+escape\+\_\+string} to sanitize the input and prevent SQL injection.
+\item The script checks if the author and category already exist in the database\+:
+\begin{DoxyItemize}
+\item If the author does not exist, I add the author to the {\ttfamily authors} table.
+\item If the category does not exist, I add the category to the {\ttfamily categories} table.
+\end{DoxyItemize}
+\item After ensuring the author and category exist, I insert the book details into the {\ttfamily books} table.
+\item If any operation fails, I display an appropriate error message using Java\+Script alerts.
+\item Finally, I close the database connection to free up resources.
+\end{DoxyItemize}
+
+\begin{DoxyNote}{Note}
+
+\begin{DoxyItemize}
+\item Ensure that the database contains the {\ttfamily authors}, {\ttfamily categories}, and {\ttfamily books} tables with the appropriate schema.
+\item This file is intended for use by administrators only.
+\end{DoxyItemize}
+\end{DoxyNote}
+\begin{DoxyAuthor}{Author}
+withalindo 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+April 17, 2025 
+\end{DoxyDate}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{addbooks_8php_ad3b126154bca8dcc714c726ab2780b06}\index{addbooks.php@{addbooks.php}!\$book\_name@{\$book\_name}}
+\index{\$book\_name@{\$book\_name}!addbooks.php@{addbooks.php}}
+\doxysubsubsection{\texorpdfstring{\$book\_name}{\$book\_name}}
+{\footnotesize\ttfamily \label{addbooks_8php_ad3b126154bca8dcc714c726ab2780b06} 
+\$book\+\_\+name = mysqli\+\_\+real\+\_\+escape\+\_\+string(\$conn, \$\+\_\+\+POST\mbox{[}\textquotesingle{}book\+\_\+name\textquotesingle{}\mbox{]})}
+
+
+
+I retrieve and sanitize the book, author, and category details from the form submission. 
+
+I use {\ttfamily mysqli\+\_\+real\+\_\+escape\+\_\+string} to sanitize the input fields and {\ttfamily intval} or {\ttfamily floatval} to ensure numeric values are properly handled. \Hypertarget{addbooks_8php_a947cf6e606a70b8ea2eae3feb07d221e}\index{addbooks.php@{addbooks.php}!\$book\_query@{\$book\_query}}
+\index{\$book\_query@{\$book\_query}!addbooks.php@{addbooks.php}}
+\doxysubsubsection{\texorpdfstring{\$book\_query}{\$book\_query}}
+{\footnotesize\ttfamily \label{addbooks_8php_a947cf6e606a70b8ea2eae3feb07d221e} 
+if (mysqli\+\_\+num\+\_\+rows( \$check\+\_\+category\+\_\+result)==0) \$book\+\_\+query}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \textcolor{stringliteral}{"{}INSERT\ INTO\ books\ (book\_name,\ book\_isbn,\ author\_id,\ category\_id,\ number\_of\_copies,\ book\_price)\ }}
+\DoxyCodeLine{\textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ VALUES\ ('\$book\_name',\ '\$book\_isbn',\ \$author\_id,\ \$cat\_id,\ \$no\_of\_copies,\ \$book\_price)"{}}}
+
+\end{DoxyCode}
+
+
+I insert the book details into the {\ttfamily books} table. 
+
+After ensuring the author and category exist, I insert the book details into the {\ttfamily books} table. If the operation is successful, I display a success message. Otherwise, I display an error message. \Hypertarget{addbooks_8php_a2b970eb0ea99d5a65a085e96ee542ad8}\index{addbooks.php@{addbooks.php}!\$check\_author\_query@{\$check\_author\_query}}
+\index{\$check\_author\_query@{\$check\_author\_query}!addbooks.php@{addbooks.php}}
+\doxysubsubsection{\texorpdfstring{\$check\_author\_query}{\$check\_author\_query}}
+{\footnotesize\ttfamily \label{addbooks_8php_a2b970eb0ea99d5a65a085e96ee542ad8} 
+if ( \$no\+\_\+of\+\_\+copies$<$ 0\texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|}\$book\+\_\+price$<$ 0) \$check\+\_\+author\+\_\+query (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) = "{}SELECT \texorpdfstring{$\ast$}{*} FROM authors WHERE author\+\_\+id = \$author\+\_\+id"{}}
+
+
+
+I validate the number of copies and book price to ensure they are non-\/negative. 
+
+If the number of copies or book price is negative, I display an error message and stop execution.
+
+I check if the author exists in the {\ttfamily authors} table.
+
+If the author does not exist, I insert the author into the {\ttfamily authors} table. \Hypertarget{addbooks_8php_a41fadd88e9dd0816e1d7d020c4a6830f}\index{addbooks.php@{addbooks.php}!\$check\_category\_query@{\$check\_category\_query}}
+\index{\$check\_category\_query@{\$check\_category\_query}!addbooks.php@{addbooks.php}}
+\doxysubsubsection{\texorpdfstring{\$check\_category\_query}{\$check\_category\_query}}
+{\footnotesize\ttfamily \label{addbooks_8php_a41fadd88e9dd0816e1d7d020c4a6830f} 
+if (mysqli\+\_\+num\+\_\+rows( \$check\+\_\+author\+\_\+result)==0) \$check\+\_\+category\+\_\+query = "{}SELECT \texorpdfstring{$\ast$}{*} FROM categories WHERE category\+\_\+id = \$cat\+\_\+id AND category\+\_\+name = \textquotesingle{}\$category\+\_\+name\textquotesingle{}"{}}
+
+
+
+I check if the category exists in the {\ttfamily categories} table. 
+
+If the category does not exist, I insert the category into the {\ttfamily categories} table. \Hypertarget{addbooks_8php_ada8af174388e4a5bd9304c9628e48d9f}\index{addbooks.php@{addbooks.php}!else@{else}}
+\index{else@{else}!addbooks.php@{addbooks.php}}
+\doxysubsubsection{\texorpdfstring{else}{else}}
+{\footnotesize\ttfamily \label{addbooks_8php_ada8af174388e4a5bd9304c9628e48d9f} 
+if (mysqli\+\_\+query( \$conn, \$book\+\_\+query)) else}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ echo\ \textcolor{stringliteral}{"{}<script>alert('Error:\ Could\ not\ add\ the\ book.');</script>"{}}}
+
+\end{DoxyCode}

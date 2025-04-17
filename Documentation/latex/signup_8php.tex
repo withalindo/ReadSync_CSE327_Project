@@ -1,0 +1,30 @@
+\doxysection{Back\+End/signup.php File Reference}
+\hypertarget{signup_8php}{}\label{signup_8php}\index{BackEnd/signup.php@{BackEnd/signup.php}}
+
+
+This is the backend file for handling user registration.  
+
+
+
+
+\doxysubsection{Detailed Description}
+This is the backend file for handling user registration. 
+
+I created this file to process the data submitted from the sign-\/up form. It validates the input, sanitizes the data, and inserts the new user\textquotesingle{}s information into the database.
+
+
+\begin{DoxyItemize}
+\item I included the {\ttfamily \doxylink{connect_d_b_8php}{connect\+DB.\+php}} file to establish a connection to the database.
+\item The script retrieves the form data using the {\ttfamily POST} method and sanitizes it to prevent malicious input.
+\item I implemented input validation to ensure that all required fields are filled.
+\item If the input is valid, the script uses a prepared statement to securely insert the user\textquotesingle{}s data into the database.
+\item If the registration is successful, I display a success message and redirect the user to the login page.
+\item If there is an error during the process, I display an appropriate error message and redirect the user back to the landing page.
+\end{DoxyItemize}
+
+\begin{DoxyAuthor}{Author}
+withalindo 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+April 17, 2025 
+\end{DoxyDate}

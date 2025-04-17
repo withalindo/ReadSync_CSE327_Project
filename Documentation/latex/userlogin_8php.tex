@@ -1,0 +1,38 @@
+\doxysection{Back\+End/userlogin.php File Reference}
+\hypertarget{userlogin_8php}{}\label{userlogin_8php}\index{BackEnd/userlogin.php@{BackEnd/userlogin.php}}
+
+
+This file handles the backend logic for user login functionality.  
+
+
+
+
+\doxysubsection{Detailed Description}
+This file handles the backend logic for user login functionality. 
+
+I created this file to process login requests from the user login page. It validates the user\textquotesingle{}s credentials, checks them against the database, and starts a session if the login is successful.
+
+
+\begin{DoxyItemize}
+\item I included the {\ttfamily \doxylink{connect_d_b_8php}{connect\+DB.\+php}} file to establish a connection to the database.
+\item The script retrieves the user\textquotesingle{}s email and password from the form submission.
+\item I implemented input validation to ensure that the fields are not empty and the email is in a valid format.
+\item The script uses a prepared statement to securely query the database for the user\textquotesingle{}s information.
+\item If the credentials are valid, I start a session and redirect the user to their dashboard.
+\item If the credentials are invalid, I display appropriate error messages using Java\+Script alerts.
+\item I also close the database connection and prepared statement after processing.
+\end{DoxyItemize}
+
+\begin{DoxyNote}{Note}
+
+\begin{DoxyItemize}
+\item Ensure that the {\ttfamily users} table in the database contains the appropriate schema for user authentication.
+\item This file is intended for use by registered users only.
+\end{DoxyItemize}
+\end{DoxyNote}
+\begin{DoxyAuthor}{Author}
+withalindo 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+April 17, 2025 
+\end{DoxyDate}

@@ -1,3 +1,29 @@
+<?php
+/**
+ * @file addBooksF.php
+ * @brief Front-end for adding new books to the library system.
+ *
+ * I created this file to provide a user interface for administrators to add new books. 
+ * It includes a form for inputting book details and a navigation menu for accessing 
+ * other administrative features.
+ *
+ * @details
+ * - The form collects details like Book Name, ISBN, Author Name, Author ID, Category Name, 
+ *   Category ID, Number of Copies, and Book Price.
+ * - The form uses the `POST` method to send data to the backend file `addbooks.php`.
+ * - Includes a side navigation menu for accessing other features like updating books, 
+ *   viewing stock, and logging out.
+ * - JavaScript functions handle the opening and closing of the side navigation menu.
+ *
+ * @note 
+ * - Ensure the backend file `addbooks.php` is configured to handle the form submission.
+ * - This page is for administrators only.
+ *
+ * @author 
+ * withalindo
+ * @date April 17, 2025
+ */
+?>
 <!DOCTYPE html>
 <html lang="en">
 

@@ -1,3 +1,24 @@
+<?php
+/**
+ * @file adminLoginF.php
+ * @brief This is the front-end for the Admin Login page.
+ *
+ * I created this file to provide the HTML structure and functionality for the admin login page.
+ * It includes a login form for administrators to access the system and a motivational quote section.
+ *
+ * @details
+ * - I used external CSS files for styling and a custom font for the design.
+ * - The login form sends the admin's credentials (Admin ID and Password) to the backend file 
+ *   `adminlogin.php` for authentication.
+ * - The right section displays rotating motivational quotes, which I implemented using JavaScript.
+ * - The page is responsive and includes a "BACK" button to navigate to the landing page.
+ *
+ * @author 
+ * withalindo
+ * @date April 17, 2025
+ */
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,7 +49,14 @@
             <a href="landingF.php" id="backButton">BACK</a>
         </div>
     </div>
+
     <script>
+        /**
+         * @brief I wrote this script to display rotating motivational quotes.
+         *
+         * The script cycles through an array of quotes every 3 seconds and updates the text content
+         * of the quote section dynamically.
+         */
         const quotes = [
             "The best way to predict the future is to create it.",
             "Success is not the key to happiness. Happiness is the key to success.",
@@ -45,5 +73,4 @@
         }, 3000);
     </script>
 </body>
-
 </html>
