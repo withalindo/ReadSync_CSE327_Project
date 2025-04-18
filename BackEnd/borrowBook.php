@@ -7,9 +7,19 @@
  * It validates user input, checks for user existence, verifies book availability, and updates
  * the database accordingly.
  *
+ * @details
+ * - Verifies if the username exists in the `users` table.
+ * - For each book ID:
+ *   - Checks availability in the `books` table.
+ *   - Collects issued book names and calculates the total price.
+ *
+ * @note
+ * - The database connection is handled via `connectDB.php`.
+ *
  * @date 2025-04-04
  * @author Karma
  */
+
 
 include "../BackEnd/connectDB.php";
 

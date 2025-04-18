@@ -1,0 +1,1 @@
+{"version":1,"defects":[],"times":{"BorrowBookTest::testUserNameIsEmpty":0.012,"BorrowBookTest::testBooksArrayIsEmpty":0,"BorrowBookTest::testValidInput":0.001,"BorrowBookTest::testBothInputsEmpty":0,"BorrowBookTest::testBooksArrayContainsInvalidData":0}}

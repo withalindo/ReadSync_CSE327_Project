@@ -1,0 +1,32 @@
+\doxysection{Back\+End/return\+Book.php File Reference}
+\hypertarget{return_book_8php}{}\label{return_book_8php}\index{BackEnd/returnBook.php@{BackEnd/returnBook.php}}
+
+
+Script to handle book return functionality.  
+
+
+
+
+\doxysubsection{Detailed Description}
+Script to handle book return functionality. 
+
+This script enables users to return borrowed books by providing the book name and their username. It validates the input, checks if the user and book exist in the database, and updates the {\ttfamily issued\+\_\+books} table to reflect the return. Additionally, it increments the stock of the returned book.
+
+This script performs the following operations\+:
+\begin{DoxyItemize}
+\item Validates user input.
+\item Checks if the user and book exist in the database.
+\end{DoxyItemize}
+
+\begin{DoxyNote}{Note}
+
+\begin{DoxyItemize}
+\item Ensure {\ttfamily connect\+DB.\+php} correctly establishes the database connection.
+\end{DoxyItemize}
+\end{DoxyNote}
+\begin{DoxyDate}{Date}
+2025-\/04-\/04 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Karma 
+\end{DoxyAuthor}

@@ -1,0 +1,65 @@
+\doxysection{Front\+End/borrow\+BookF.php File Reference}
+\hypertarget{borrow_book_f_8php}{}\label{borrow_book_f_8php}\index{FrontEnd/borrowBookF.php@{FrontEnd/borrowBookF.php}}
+
+
+Frontend page for selecting books to borrow.  
+
+
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{borrow_book_f_8php_a112ef069ddc0454086e3d1e6d8d55d07}{\$result}} = \$conn-\/$>$query("{}SELECT book\+\_\+id, book\+\_\+name, book\+\_\+price FROM books"{})
+\begin{DoxyCompactList}\small\item\em Fetches and displays the list of available books. \end{DoxyCompactList}\item 
+if(\$result-\/$>$num\+\_\+rows $>$ 0) \mbox{\hyperlink{borrow_book_f_8php_ad908b96d32f6275bf3ab9e93283a8588}{else}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Frontend page for selecting books to borrow. 
+
+This page provides a form for users to select books for borrowing. It fetches the list of available books from the database and displays them in a table with checkboxes for selection. The form submits the selected books and the user\textquotesingle{}s username to the backend script {\ttfamily \doxylink{borrow_book_8php}{borrow\+Book.\+php}}.
+
+
+\begin{DoxyItemize}
+\item Connects to the database using {\ttfamily connect\+DB.\+php}.
+\item Queries the {\ttfamily books} table for available books, retrieving {\ttfamily book\+\_\+id}, {\ttfamily book\+\_\+name}, and {\ttfamily book\+\_\+price}.
+\end{DoxyItemize}
+
+\begin{DoxyNote}{Note}
+
+\begin{DoxyItemize}
+\item Ensure the {\ttfamily books} table contains relevant data for display (at least {\ttfamily book\+\_\+id}, {\ttfamily book\+\_\+name}, {\ttfamily book\+\_\+price}).
+\end{DoxyItemize}
+\end{DoxyNote}
+\begin{DoxyDate}{Date}
+2025-\/04-\/04 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Karma 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{borrow_book_f_8php_a112ef069ddc0454086e3d1e6d8d55d07}\index{borrowBookF.php@{borrowBookF.php}!\$result@{\$result}}
+\index{\$result@{\$result}!borrowBookF.php@{borrowBookF.php}}
+\doxysubsubsection{\texorpdfstring{\$result}{\$result}}
+{\footnotesize\ttfamily \label{borrow_book_f_8php_a112ef069ddc0454086e3d1e6d8d55d07} 
+\$result = \$conn-\/$>$query("{}SELECT book\+\_\+id, book\+\_\+name, book\+\_\+price FROM books"{})}
+
+
+
+Fetches and displays the list of available books. 
+
+Queries the {\ttfamily books} table to retrieve book details such as ID, name, and price. Displays the books in a table with checkboxes for selection. \Hypertarget{borrow_book_f_8php_ad908b96d32f6275bf3ab9e93283a8588}\index{borrowBookF.php@{borrowBookF.php}!else@{else}}
+\index{else@{else}!borrowBookF.php@{borrowBookF.php}}
+\doxysubsubsection{\texorpdfstring{else}{else}}
+{\footnotesize\ttfamily \label{borrow_book_f_8php_ad908b96d32f6275bf3ab9e93283a8588} 
+if ( \$result-\/$>$num\+\_\+rows $>$ 0) else}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ echo\ \textcolor{stringliteral}{"{}<p\ style='text-\/align:center;'>No\ books\ available.</p>"{}}}
+
+\end{DoxyCode}

@@ -7,7 +7,14 @@
  * the list of available books from the database and displays them in a table with
  * checkboxes for selection. The form submits the selected books and the user's
  * username to the backend script `borrowBook.php`.
+ * 
+ * @details
+ * - Connects to the database using `connectDB.php`.
+ * - Queries the `books` table for available books, retrieving `book_id`, `book_name`, and `book_price`.
  *
+ * @note
+ * - Ensure the `books` table contains relevant data for display (at least `book_id`, `book_name`, `book_price`).
+ * 
  * @date 2025-04-04
  * @author Karma
  */

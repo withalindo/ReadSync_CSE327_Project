@@ -3,13 +3,22 @@
  * @file returnBook.php
  * @brief Script to handle book return functionality.
  *
- * This script allows users to return borrowed books by providing the book name and their username.
- * It validates user input, checks if the user and book exist in the database, and updates the
- * `issued_books` table to mark the book as returned. It also increments the stock of the book.
+ * This script enables users to return borrowed books by providing the book name and their username.
+ * It validates the input, checks if the user and book exist in the database, and updates the
+ * `issued_books` table to reflect the return. Additionally, it increments the stock of the returned book.
+ *
+ * @details
+ * This script performs the following operations:
+ * - Validates user input.
+ * - Checks if the user and book exist in the database.
+ *
+ * @note
+ * - Ensure `connectDB.php` correctly establishes the database connection.
  *
  * @date 2025-04-04
  * @author Karma
  */
+
 
 include "connectDB.php";
 

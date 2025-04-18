@@ -7,6 +7,12 @@
  * It serves as a navigation hub for users to perform various actions, such as borrowing books, viewing borrowed books, and requesting books.
  * The page is styled using external CSS files and includes a side navigation menu for user functionalities.
  *
+ * @details
+ * - Main dashboard buttons navigate to book borrowing, borrowed books view, and book request pages.
+ *
+ * @note
+ * - Ensure all linked pages (`borrowBookF.php`, `borrowedBooksF.php`, `request_bookF.php`, etc.) exist and are functional.
+ * 
  * @date 2025-04-04
  * @author Karma
  */

@@ -8,6 +8,12 @@
  * The form submits the data to the backend script `returnBook.php` for processing.
  * The page is styled using external CSS files.
  *
+ * @details
+ * - The page contains a form with two input fields: one for the user's username and one for the book name.
+ *
+ * @note
+ * - Ensure that the `returnBook.php` script exists and correctly handles form input.
+ * 
  * @date 2025-04-04
  * @author Karma
  */
