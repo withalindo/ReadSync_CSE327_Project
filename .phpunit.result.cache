@@ -1,1 +1,1 @@
-{"version":1,"defects":[],"times":{"UpdateBookCopyTest::testUpdateBookCopies":0.03}}
+{"version":1,"defects":[],"times":{"UpdateBookCopyTest::testUpdateBookCopies":0.017,"UpdateBookCopyTest::testUpdateBookCopiesSuccess":0.012,"UpdateBookCopyTest::testUpdateBookCopiesInvalidISBN":0.007,"UpdateBookCopyTest::testUpdateBookCopiesNegativeCopies":0.005}}
