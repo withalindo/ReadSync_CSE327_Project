@@ -1,91 +1,111 @@
 <?php
 /**
  * @file updateBookCopy.php
- * @brief This file handles updating the number of copies for a specific book in the database.
- *
- * I created this file to process requests for updating the number of copies of a book in the library system.
- * It retrieves the book details from the form, validates the input, and updates the database accordingly.
- *
- * @details
- * - I included the `connectDB.php` file to establish a connection to the database.
- * - The script retrieves the book name, ISBN, and the new number of copies from the form submission.
- * - I use `mysqli_real_escape_string` to sanitize the input and prevent SQL injection.
- * - The script checks if the book exists in the database using a `SELECT` query.
- * - If the book exists, I execute an `UPDATE` query to modify the number of copies.
- * - If the book does not exist, I display an error message.
- * - After processing, I redirect the user back to the update form page.
- * - Finally, I close the database connection to free up resources.
- *
- * @note 
- * - Ensure that the database contains the `books` table with the appropriate schema.
- * - This script assumes that the form submission includes valid and sanitized data.
- *
- * @author 
- * withalindo
+ * @brief This file contains the implementation of the updateBookCopy class, which I created to manage book copy updates in the database.
+ * 
+ * I designed this file to handle operations like checking if a book exists by its ISBN and updating the number of copies for a book.
+ * It also processes POST requests to update book copies and redirects users to the appropriate page after the operation.
+ * 
+ * @author withaindo
  * @date April 17, 2025
  */
 
-
 include "../BackEnd/connectDB.php";
 
-// Retrieve and sanitize form data
 /**
- * @brief I retrieve and sanitize the book details from the form submission.
- *
- * I use `mysqli_real_escape_string` to sanitize the book name and ISBN, and `floatval` to ensure 
- * the new number of copies is a valid numeric value.
+ * @class updateBookCopy
+ * @brief This class provides methods to manage book copy updates in the database.
+ * 
+ * I created this class to interact with the `books` table in the database. It includes methods to check if a book exists
+ * and update its copy count using its ISBN.
  */
-$bookName = mysqli_real_escape_string($conn, $_POST['book_name']);
-$bookISBN = mysqli_real_escape_string($conn, $_POST['book_isbn']);
-$newBookCopies = floatval($_POST['new_book_copies']);
+class updateBookCopy
+{
+    private $conn; /**< @var $conn The database connection object */
 
-// Check if the book exists in the database
-/**
- * @brief I check if the book exists in the database using its ISBN.
- *
- * I execute a `SELECT` query to verify if the book is present in the `books` table.
- */
-$checkBookQuery = "SELECT * FROM books WHERE book_isbn = '$bookISBN'";
-$checkBookResult = mysqli_query($conn, $checkBookQuery);
-
-if (mysqli_num_rows($checkBookResult) > 0) {
-    // Update the number of copies for the book
     /**
-     * @brief I update the number of copies for the book if it exists.
-     *
-     * I execute an `UPDATE` query to modify the `number_of_copies` field in the `books` table.
-     * If the query is successful, I display a success message. Otherwise, I display an error message.
+     * @brief Constructor to initialize the database connection.
+     * @param $conn The database connection object.
      */
-    $updateCopyQuery = "UPDATE books SET number_of_copies = $newBookCopies WHERE book_isbn = '$bookISBN'";
-    if (mysqli_query($conn, $updateCopyQuery)) {
-        echo "<script>alert('Book copies updated successfully!');</script>";
-    } else {
-        echo "<script>alert('Error: Could not update the book copies.');</script>";
+    public function __construct($conn)
+    {
+        $this->conn = $conn;
     }
-} else {
-    // Handle the case where the book is not found
+
     /**
-     * @brief I handle the case where the book does not exist in the database.
-     *
-     * If the book is not found, I display an error message to the user.
+     * @brief Check if a book exists in the database by its ISBN.
+     * 
+     * I use this method to verify if a book with the given ISBN exists in the database.
+     * 
+     * @param string $bookISBN The ISBN of the book.
+     * @return bool True if the book exists, false otherwise.
      */
-    echo "<script>alert('Error: Book not found.');</script>";
+    public function bookExistsByISBN($bookISBN)
+    {
+        $query = "SELECT * FROM books WHERE book_isbn = ?";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param("s", $bookISBN);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result && $result->num_rows > 0;
+    }
+
+    /**
+     * @brief Update the number of copies of a book in the database by ISBN.
+     * 
+     * I use this method to update the `number_of_copies` field for a book with the given ISBN.
+     * 
+     * @param string $bookISBN The ISBN of the book.
+     * @param int $newCopies The new number of copies.
+     * @return bool True if the update was successful, false otherwise.
+     */
+    public function updateBookCopiesByISBN($bookISBN, $newCopies)
+    {
+        $query = "UPDATE books SET number_of_copies = ? WHERE book_isbn = ?";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param("is", $newCopies, $bookISBN);
+        return $stmt->execute();
+    }
+
+    /**
+     * @brief Handle the update book copy request.
+     * 
+     * This method processes POST requests to update the number of copies of a book. 
+     * I validate the input, check if the book exists, and update the copy count if valid.
+     * After processing, I redirect the user to the `updateBookCopyF.php` page.
+     */
+    public function handleUpdateBookCopy()
+    {
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $bookISBN = isset($_POST["book_isbn"]) ? $_POST["book_isbn"] : null;
+            $newTotalCopies = isset($_POST["new_book_copies"]) ? $_POST["new_book_copies"] : null;
+
+            if ($bookISBN === null || $newTotalCopies === null) {
+                echo "Error: Missing required POST parameters.";
+                return;
+            }
+
+            if ($this->bookExistsByISBN($bookISBN)) {
+                if ($this->updateBookCopiesByISBN($bookISBN, $newTotalCopies)) {
+                    echo "Successfully updated Book ISBN: $bookISBN to $newTotalCopies copies.";
+                    header("Location: ../FrontEnd/updateBookCopyF.php");
+                } else {
+                    echo "Update failed.";
+                }
+            } else {
+                echo "Book not found.";
+            }
+        } else {
+            echo "Invalid request method.";
+        }
+    }
 }
 
-// Redirect to the update form page
 /**
- * @brief I redirect the user back to the update form page after processing.
- *
- * This ensures that the user can see the result of their action and make further updates if needed.
+ * @brief Usage example for the updateBookCopy class.
+ * 
+ * I use this section to demonstrate how to create an instance of the updateBookCopy class and handle a book copy update request.
  */
-header("Location: ../FrontEnd/updateBookCopyF.php");
-exit;
-
-// Close the database connection
-/**
- * @brief I close the database connection to free up resources.
- *
- * After completing the operation, I ensure that the database connection is properly closed.
- */
-mysqli_close($conn);
-?>
+$conn = include "../BackEnd/connectDB.php";
+$bookManager = new updateBookCopy($conn);
+$bookManager->handleUpdateBookCopy();

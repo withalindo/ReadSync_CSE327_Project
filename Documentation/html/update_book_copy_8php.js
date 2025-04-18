@@ -1,5 +1,5 @@
 var update_book_copy_8php =
 [
-    [ "$bookName", "update_book_copy_8php.html#ab6f4812c3805c0dd4ee15b9e483a0dcb", null ],
-    [ "$checkBookQuery", "update_book_copy_8php.html#aec5d0c9b0bc65902d56f4aa2ff93efa3", null ]
+    [ "updateBookCopy", "classupdate_book_copy.html", "classupdate_book_copy" ],
+    [ "$conn", "update_book_copy_8php.html#aa8a5a87b9c1a6a0819b88447cbe41877", null ]
 ];

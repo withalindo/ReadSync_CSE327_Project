@@ -56,4 +56,6 @@
         echo "Yoo, Connection successful";
     }
 
+    return $conn; 
+
 ?>

@@ -1,0 +1,101 @@
+\doxysection{update\+Book\+Copy Class Reference}
+\hypertarget{classupdate_book_copy}{}\label{classupdate_book_copy}\index{updateBookCopy@{updateBookCopy}}
+
+
+This class provides methods to manage book copy updates in the database.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classupdate_book_copy_a843ebfe8d91c251283a1545a70d72675}{\+\_\+\+\_\+construct}} (\$conn)
+\begin{DoxyCompactList}\small\item\em Constructor to initialize the database connection. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classupdate_book_copy_a076b337c19212436046bbbd5436f5902}{book\+Exists\+By\+ISBN}} (\$book\+ISBN)
+\begin{DoxyCompactList}\small\item\em Check if a book exists in the database by its ISBN. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classupdate_book_copy_a1ce879b2935aaf0b6d3d2f672f38a1d8}{update\+Book\+Copies\+By\+ISBN}} (\$book\+ISBN, \$new\+Copies)
+\begin{DoxyCompactList}\small\item\em Update the number of copies of a book in the database by ISBN. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classupdate_book_copy_a8c566964163153be5dd08d9d14264fe4}{handle\+Update\+Book\+Copy}} ()
+\begin{DoxyCompactList}\small\item\em Handle the update book copy request. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class provides methods to manage book copy updates in the database. 
+
+I created this class to interact with the {\ttfamily books} table in the database. It includes methods to check if a book exists and update its copy count using its ISBN. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classupdate_book_copy_a843ebfe8d91c251283a1545a70d72675}\index{updateBookCopy@{updateBookCopy}!\_\_construct@{\_\_construct}}
+\index{\_\_construct@{\_\_construct}!updateBookCopy@{updateBookCopy}}
+\doxysubsubsection{\texorpdfstring{\_\_construct()}{\_\_construct()}}
+{\footnotesize\ttfamily \label{classupdate_book_copy_a843ebfe8d91c251283a1545a70d72675} 
+update\+Book\+Copy\+::\+\_\+\+\_\+construct (\begin{DoxyParamCaption}\item[{}]{\$conn}{}\end{DoxyParamCaption})}
+
+
+
+Constructor to initialize the database connection. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \$conn} & The database connection object. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classupdate_book_copy_a076b337c19212436046bbbd5436f5902}\index{updateBookCopy@{updateBookCopy}!bookExistsByISBN@{bookExistsByISBN}}
+\index{bookExistsByISBN@{bookExistsByISBN}!updateBookCopy@{updateBookCopy}}
+\doxysubsubsection{\texorpdfstring{bookExistsByISBN()}{bookExistsByISBN()}}
+{\footnotesize\ttfamily \label{classupdate_book_copy_a076b337c19212436046bbbd5436f5902} 
+update\+Book\+Copy\+::book\+Exists\+By\+ISBN (\begin{DoxyParamCaption}\item[{}]{\$book\+ISBN}{}\end{DoxyParamCaption})}
+
+
+
+Check if a book exists in the database by its ISBN. 
+
+I use this method to verify if a book with the given ISBN exists in the database.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$book\+ISBN} & The ISBN of the book. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool True if the book exists, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{classupdate_book_copy_a8c566964163153be5dd08d9d14264fe4}\index{updateBookCopy@{updateBookCopy}!handleUpdateBookCopy@{handleUpdateBookCopy}}
+\index{handleUpdateBookCopy@{handleUpdateBookCopy}!updateBookCopy@{updateBookCopy}}
+\doxysubsubsection{\texorpdfstring{handleUpdateBookCopy()}{handleUpdateBookCopy()}}
+{\footnotesize\ttfamily \label{classupdate_book_copy_a8c566964163153be5dd08d9d14264fe4} 
+update\+Book\+Copy\+::handle\+Update\+Book\+Copy (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Handle the update book copy request. 
+
+This method processes POST requests to update the number of copies of a book. I validate the input, check if the book exists, and update the copy count if valid. After processing, I redirect the user to the {\ttfamily \doxylink{update_book_copy_f_8php}{update\+Book\+Copy\+F.\+php}} page. \Hypertarget{classupdate_book_copy_a1ce879b2935aaf0b6d3d2f672f38a1d8}\index{updateBookCopy@{updateBookCopy}!updateBookCopiesByISBN@{updateBookCopiesByISBN}}
+\index{updateBookCopiesByISBN@{updateBookCopiesByISBN}!updateBookCopy@{updateBookCopy}}
+\doxysubsubsection{\texorpdfstring{updateBookCopiesByISBN()}{updateBookCopiesByISBN()}}
+{\footnotesize\ttfamily \label{classupdate_book_copy_a1ce879b2935aaf0b6d3d2f672f38a1d8} 
+update\+Book\+Copy\+::update\+Book\+Copies\+By\+ISBN (\begin{DoxyParamCaption}\item[{}]{\$book\+ISBN}{, }\item[{}]{\$new\+Copies}{}\end{DoxyParamCaption})}
+
+
+
+Update the number of copies of a book in the database by ISBN. 
+
+I use this method to update the {\ttfamily number\+\_\+of\+\_\+copies} field for a book with the given ISBN.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$book\+ISBN} & The ISBN of the book. \\
+\hline
+int & {\em \$new\+Copies} & The new number of copies. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool True if the update was successful, false otherwise. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Back\+End/\mbox{\hyperlink{update_book_copy_8php}{update\+Book\+Copy.\+php}}\end{DoxyCompactItemize}
