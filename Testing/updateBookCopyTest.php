@@ -18,13 +18,28 @@ class UpdateBookCopyTest extends TestCase
         ");
     }
 
-    public function testUpdateBookCopies()
+    public function testUpdateBookCopiesSuccess()
     {
         $updateBook = new updateBookCopy($this->conn);
         $this->assertTrue($updateBook->updateBookCopiesByISBN('9780062569012', 10));
         $result = $this->conn->query("SELECT number_of_copies FROM books WHERE book_isbn = '9780062569012'");
         $row = $result->fetch_assoc();
         $this->assertEquals(10, $row['number_of_copies']);
+    }
+
+    public function testUpdateBookCopiesInvalidISBN()
+    {
+        $updateBook = new updateBookCopy($this->conn);
+        $this->assertFalse($updateBook->updateBookCopiesByISBN('9999999999999', 10)); 
+    }
+
+    public function testUpdateBookCopiesNegativeCopies()
+    {
+        $updateBook = new updateBookCopy($this->conn);
+        $this->assertFalse($updateBook->updateBookCopiesByISBN('9780062569012', -5)); 
+        $result = $this->conn->query("SELECT number_of_copies FROM books WHERE book_isbn = '9780062569012'");
+        $row = $result->fetch_assoc();
+        $this->assertEquals(5, $row['number_of_copies']); 
     }
 
     protected function tearDown(): void

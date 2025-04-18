@@ -6,8 +6,9 @@
  * I designed this file to handle operations like checking if a book exists by its ISBN and updating the number of copies for a book.
  * It also processes POST requests to update book copies and redirects users to the appropriate page after the operation.
  * 
- * @author withaindo
- * @date April 17, 2025
+ * @author 
+ * withalindo
+ * @date April 18, 2025
  */
 
 include "../BackEnd/connectDB.php";
@@ -61,6 +62,14 @@ class updateBookCopy
      */
     public function updateBookCopiesByISBN($bookISBN, $newCopies)
     {
+        if ($newCopies < 0) {
+            return false; // Prevent negative values
+        }
+
+        if (!$this->bookExistsByISBN($bookISBN)) {
+            return false; // Return false if the book does not exist
+        }
+
         $query = "UPDATE books SET number_of_copies = ? WHERE book_isbn = ?";
         $stmt = $this->conn->prepare($query);
         $stmt->bind_param("is", $newCopies, $bookISBN);
@@ -100,12 +109,7 @@ class updateBookCopy
         }
     }
 }
-
-/**
- * @brief Usage example for the updateBookCopy class.
- * 
- * I use this section to demonstrate how to create an instance of the updateBookCopy class and handle a book copy update request.
- */
 $conn = include "../BackEnd/connectDB.php";
 $bookManager = new updateBookCopy($conn);
 $bookManager->handleUpdateBookCopy();
+?>
