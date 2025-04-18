@@ -1,0 +1,27 @@
+var NAVTREEINDEX0 =
+{
+"admin_stock_8php.html":[0,0,0],
+"admin_stock_8php.html#a047170d6020a882807665812a27e2525":[0,0,0,1],
+"admin_stock_8php.html#a112ef069ddc0454086e3d1e6d8d55d07":[0,0,0,0],
+"admin_stock_8php.html#ad908b96d32f6275bf3ab9e93283a8588":[0,0,0,2],
+"admin_stock_f_8php.html":[0,0,1],
+"borrowed_books_8php.html":[0,0,2],
+"borrowed_books_8php.html#a3318f3f7c22c302aef1f6d7f2be4ce79":[0,0,2,5],
+"borrowed_books_8php.html#a768c773a5f9a6258343b30f3205f528f":[0,0,2,4],
+"borrowed_books_8php.html#a8774932fa47f1937633f0dd6a327ff51":[0,0,2,2],
+"borrowed_books_8php.html#ab49da9a1a6d2d7bb63cc217e34fec3b3":[0,0,2,3],
+"borrowed_books_8php.html#ac0e95110af95ce3515d2149d8dcab17b":[0,0,2,1],
+"borrowed_books_8php.html#ac2e2a2f7ed1b86f7b2b6d0353935f8b1":[0,0,2,0],
+"borrowed_books_f_8php.html":[0,0,3],
+"files.html":[0,0],
+"globals.html":[0,1,0],
+"globals_func.html":[0,1,1],
+"globals_vars.html":[0,1,2],
+"index.html":[],
+"library_8php.html":[0,0,4],
+"library_8php.html#a047170d6020a882807665812a27e2525":[0,0,4,1],
+"library_8php.html#a112ef069ddc0454086e3d1e6d8d55d07":[0,0,4,0],
+"library_8php.html#ad908b96d32f6275bf3ab9e93283a8588":[0,0,4,2],
+"library_f_8php.html":[0,0,5],
+"pages.html":[]
+};
