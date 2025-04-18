@@ -37,7 +37,6 @@ var NAVTREEINDEX0 =
 "signup_f_8php.html":[1,0,1,4],
 "test_d_b_8php.html":[1,0,0,5],
 "update_book_copy_8php.html":[1,0,0,6],
-"update_book_copy_8php.html#aa8a5a87b9c1a6a0819b88447cbe41877":[1,0,0,6,1],
 "update_book_copy_f_8php.html":[1,0,1,5],
 "update_book_name_8php.html":[1,0,0,7],
 "update_book_name_8php.html#ae9c3a04a0fe4c817244b1db0eef3c140":[1,0,0,7,0],
