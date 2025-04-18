@@ -33,3 +33,4 @@ class UpdateBookCopyTest extends TestCase
         $this->conn->close();
     }
 }
+?>
