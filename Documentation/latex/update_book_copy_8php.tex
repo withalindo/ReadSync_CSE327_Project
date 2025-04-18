@@ -2,58 +2,31 @@
 \hypertarget{update_book_copy_8php}{}\label{update_book_copy_8php}\index{BackEnd/updateBookCopy.php@{BackEnd/updateBookCopy.php}}
 
 
-This file handles updating the number of copies for a specific book in the database.  
+This file contains the implementation of the \doxylink{classupdate_book_copy}{update\+Book\+Copy} class, which I created to manage book copy updates in the database.  
 
 
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classupdate_book_copy}{update\+Book\+Copy}}
+\begin{DoxyCompactList}\small\item\em This class provides methods to manage book copy updates in the database. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{update_book_copy_8php_ab6f4812c3805c0dd4ee15b9e483a0dcb}{\$book\+Name}} = mysqli\+\_\+real\+\_\+escape\+\_\+string(\$conn, \$\+\_\+\+POST\mbox{[}\textquotesingle{}book\+\_\+name\textquotesingle{}\mbox{]})
-\begin{DoxyCompactList}\small\item\em I retrieve and sanitize the book details from the form submission. \end{DoxyCompactList}\item 
-\Hypertarget{update_book_copy_8php_ae9c3a04a0fe4c817244b1db0eef3c140}\label{update_book_copy_8php_ae9c3a04a0fe4c817244b1db0eef3c140} 
-{\bfseries \$book\+ISBN} = mysqli\+\_\+real\+\_\+escape\+\_\+string(\$conn, \$\+\_\+\+POST\mbox{[}\textquotesingle{}book\+\_\+isbn\textquotesingle{}\mbox{]})
-\item 
-\Hypertarget{update_book_copy_8php_ab37abce3655ee4d1dc60f4b54aa085a2}\label{update_book_copy_8php_ab37abce3655ee4d1dc60f4b54aa085a2} 
-{\bfseries \$new\+Book\+Copies} = floatval(\$\+\_\+\+POST\mbox{[}\textquotesingle{}new\+\_\+book\+\_\+copies\textquotesingle{}\mbox{]})
-\item 
-\mbox{\hyperlink{update_book_copy_8php_aec5d0c9b0bc65902d56f4aa2ff93efa3}{\$check\+Book\+Query}} = "{}SELECT \texorpdfstring{$\ast$}{*} FROM books WHERE book\+\_\+isbn = \textquotesingle{}\$book\+ISBN\textquotesingle{}"{}
-\begin{DoxyCompactList}\small\item\em I check if the book exists in the database using its ISBN. \end{DoxyCompactList}\item 
-\Hypertarget{update_book_copy_8php_afdfa1312df4b0407ea56ea3f15c57f4b}\label{update_book_copy_8php_afdfa1312df4b0407ea56ea3f15c57f4b} 
-{\bfseries \$check\+Book\+Result} = mysqli\+\_\+query(\$conn, \$check\+Book\+Query)
-\item 
-if(mysqli\+\_\+num\+\_\+rows(\$check\+Book\+Result) $>$ 0) \mbox{\hyperlink{update_book_copy_8php_a956bf71ee7c052cb26bc7c13b8293085}{else}}
-\item 
-\Hypertarget{update_book_copy_8php_a6733eb5f605d09eaede9845835d71c4e}\label{update_book_copy_8php_a6733eb5f605d09eaede9845835d71c4e} 
-{\bfseries exit}
+\mbox{\hyperlink{update_book_copy_8php_aa8a5a87b9c1a6a0819b88447cbe41877}{\$conn}} = include "{}../Back\+End/connect\+DB.\+php"{}
+\begin{DoxyCompactList}\small\item\em Usage example for the \doxylink{classupdate_book_copy}{update\+Book\+Copy} class. \end{DoxyCompactList}\item 
+\Hypertarget{update_book_copy_8php_a19a6ec901e9f0d9cbdbe8abf71b0c0d8}\label{update_book_copy_8php_a19a6ec901e9f0d9cbdbe8abf71b0c0d8} 
+{\bfseries \$book\+Manager} = new \mbox{\hyperlink{classupdate_book_copy}{update\+Book\+Copy}}(\$conn)
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-This file handles updating the number of copies for a specific book in the database. 
+This file contains the implementation of the \doxylink{classupdate_book_copy}{update\+Book\+Copy} class, which I created to manage book copy updates in the database. 
 
-I created this file to process requests for updating the number of copies of a book in the library system. It retrieves the book details from the form, validates the input, and updates the database accordingly.
+I designed this file to handle operations like checking if a book exists by its ISBN and updating the number of copies for a book. It also processes POST requests to update book copies and redirects users to the appropriate page after the operation.
 
-
-\begin{DoxyItemize}
-\item I included the {\ttfamily \doxylink{connect_d_b_8php}{connect\+DB.\+php}} file to establish a connection to the database.
-\item The script retrieves the book name, ISBN, and the new number of copies from the form submission.
-\item I use {\ttfamily mysqli\+\_\+real\+\_\+escape\+\_\+string} to sanitize the input and prevent SQL injection.
-\item The script checks if the book exists in the database using a {\ttfamily SELECT} query.
-\item If the book exists, I execute an {\ttfamily UPDATE} query to modify the number of copies.
-\item If the book does not exist, I display an error message.
-\item After processing, I redirect the user back to the update form page.
-\item Finally, I close the database connection to free up resources.
-\end{DoxyItemize}
-
-\begin{DoxyNote}{Note}
-
-\begin{DoxyItemize}
-\item Ensure that the database contains the {\ttfamily books} table with the appropriate schema.
-\item This script assumes that the form submission includes valid and sanitized data.
-\end{DoxyItemize}
-\end{DoxyNote}
 \begin{DoxyAuthor}{Author}
-withalindo 
+withaindo 
 \end{DoxyAuthor}
 \begin{DoxyDate}{Date}
 April 17, 2025 
@@ -61,37 +34,14 @@ April 17, 2025
 
 
 \doxysubsection{Variable Documentation}
-\Hypertarget{update_book_copy_8php_ab6f4812c3805c0dd4ee15b9e483a0dcb}\index{updateBookCopy.php@{updateBookCopy.php}!\$bookName@{\$bookName}}
-\index{\$bookName@{\$bookName}!updateBookCopy.php@{updateBookCopy.php}}
-\doxysubsubsection{\texorpdfstring{\$bookName}{\$bookName}}
-{\footnotesize\ttfamily \label{update_book_copy_8php_ab6f4812c3805c0dd4ee15b9e483a0dcb} 
-\$book\+Name = mysqli\+\_\+real\+\_\+escape\+\_\+string(\$conn, \$\+\_\+\+POST\mbox{[}\textquotesingle{}book\+\_\+name\textquotesingle{}\mbox{]})}
+\Hypertarget{update_book_copy_8php_aa8a5a87b9c1a6a0819b88447cbe41877}\index{updateBookCopy.php@{updateBookCopy.php}!\$conn@{\$conn}}
+\index{\$conn@{\$conn}!updateBookCopy.php@{updateBookCopy.php}}
+\doxysubsubsection{\texorpdfstring{\$conn}{\$conn}}
+{\footnotesize\ttfamily \label{update_book_copy_8php_aa8a5a87b9c1a6a0819b88447cbe41877} 
+\$conn = include "{}../Back\+End/connect\+DB.\+php"{}}
 
 
 
-I retrieve and sanitize the book details from the form submission. 
+Usage example for the \doxylink{classupdate_book_copy}{update\+Book\+Copy} class. 
 
-I use {\ttfamily mysqli\+\_\+real\+\_\+escape\+\_\+string} to sanitize the book name and ISBN, and {\ttfamily floatval} to ensure the new number of copies is a valid numeric value. \Hypertarget{update_book_copy_8php_aec5d0c9b0bc65902d56f4aa2ff93efa3}\index{updateBookCopy.php@{updateBookCopy.php}!\$checkBookQuery@{\$checkBookQuery}}
-\index{\$checkBookQuery@{\$checkBookQuery}!updateBookCopy.php@{updateBookCopy.php}}
-\doxysubsubsection{\texorpdfstring{\$checkBookQuery}{\$checkBookQuery}}
-{\footnotesize\ttfamily \label{update_book_copy_8php_aec5d0c9b0bc65902d56f4aa2ff93efa3} 
-\$check\+Book\+Query = "{}SELECT \texorpdfstring{$\ast$}{*} FROM books WHERE book\+\_\+isbn = \textquotesingle{}\$book\+ISBN\textquotesingle{}"{}}
-
-
-
-I check if the book exists in the database using its ISBN. 
-
-I execute a {\ttfamily SELECT} query to verify if the book is present in the {\ttfamily books} table. \Hypertarget{update_book_copy_8php_a956bf71ee7c052cb26bc7c13b8293085}\index{updateBookCopy.php@{updateBookCopy.php}!else@{else}}
-\index{else@{else}!updateBookCopy.php@{updateBookCopy.php}}
-\doxysubsubsection{\texorpdfstring{else}{else}}
-{\footnotesize\ttfamily \label{update_book_copy_8php_a956bf71ee7c052cb26bc7c13b8293085} 
-if (mysqli\+\_\+num\+\_\+rows( \$check\+Book\+Result) $>$ 0) else}
-
-{\bfseries Initial value\+:}
-\begin{DoxyCode}{0}
-\DoxyCodeLine{\{}
-\DoxyCodeLine{\ \ \ \ }
-\DoxyCodeLine{\ \ \ \ }
-\DoxyCodeLine{\ \ \ \ echo\ \textcolor{stringliteral}{"{}<script>alert('Error:\ Book\ not\ found.');</script>"{}}}
-
-\end{DoxyCode}
+I use this section to demonstrate how to create an instance of the \doxylink{classupdate_book_copy}{update\+Book\+Copy} class and handle a book copy update request. 
