@@ -14,7 +14,7 @@ class BorrowBookTest extends TestCase
 
     public function testBooksArrayIsEmpty()
     {
-        $username = 'JohnDoe';
+        $username = 'Karma';
         $books = [];
         $result = $this->borrowBook($username, $books);
         $this->assertStringContainsString("Please enter a username and select at least one book.", $result);
@@ -22,7 +22,7 @@ class BorrowBookTest extends TestCase
 
     public function testValidInput()
     {
-        $username = 'JohnDoe';
+        $username = 'Karma';
         $books = ['Book1', 'Book2'];
         $result = $this->borrowBook($username, $books);
         $this->assertEquals("Success", $result);
@@ -38,10 +38,10 @@ class BorrowBookTest extends TestCase
 
     public function testBooksArrayContainsInvalidData()
     {
-        $username = 'JohnDoe';
+        $username = 'Karma';
         $books = [null, '', 123];
         $result = $this->borrowBook($username, $books);
-        $this->assertEquals("Success", $result); // Assuming the function doesn't validate book content
+        $this->assertEquals("Success", $result);
     }
 
     private function borrowBook($username, $books)
